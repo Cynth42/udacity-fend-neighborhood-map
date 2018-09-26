@@ -1,5 +1,6 @@
 #map {
   height: 100vh;
+  width: 100vw;
 }
 
 html, body {
@@ -17,22 +18,22 @@ html, body {
   height: 80px;
 }*/
 
-.App-header {
+/*.App-header {
   background-color: #222;
   height: 150px;
   padding: 20px;
   color: white;
-}
+}*/
 
-.App-title {
+/*.App-title {
   font-size: 1.5em;
-}
+}*/
 
-.App-intro {
+/*.App-intro {
   font-size: large;
-}
+}*/
 
-@keyframes App-logo-spin {
+/*@keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
+}*/
