@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import './App.css'
 import axios from 'axios'
 
+window.gm_authFailure = () => {
+  alert('Google maps failed to load! Please try again later.')
+}
+
 class App extends Component {
   state = {
     venues: []
@@ -10,58 +14,78 @@ class App extends Component {
 
   componentDidMount() {
     this.getVenues()
-    //this.callMap()
-
   }
 
   callMap = () => {
-    loadScript('https://maps.googleapis.com/maps/api/js?key=AIzaSyAyesbQMyKVVbBgKVi2g6VX7mop2z96jBo&callback=initMap')
-    window.initMap = this.initMap
+   loadScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyByxHn5EYEBHNx0XmfvEpl7AkuOlPpgM0w&callback=initMap")
+   window.initMap = this.initMap
   }
 
   getVenues = () => {
-    let endPoint = 'https://api.foursquare.com/v2/venues/explore?'
-    let parameters = {
-      client_id: 'HBPBAWFIW5MVPI5FEZ1AFVQPEQ4U1LIRYHM44GAKSAUT334F',
-      client_secret: 'D5ZWFILS2RF0SJCA0BZNYKVBCKOYXQO1YJANXFQC3XJG03NZ',
-      query: 'food',
-      near: 'New York, New York',
-      v: '20182509' //YYYYDDMM
-      }
+   let endPoint = "https://api.foursquare.com/v2/venues/explore?"
+   let parameters = {
+     client_id: 'HBPBAWFIW5MVPI5FEZ1AFVQPEQ4U1LIRYHM44GAKSAUT334F',
+     client_secret: 'D5ZWFILS2RF0SJCA0BZNYKVBCKOYXQO1YJANXFQC3XJG03NZ',
+     query: 'food',
+     near: 'New York City',
+     v: '20182609' //YYYYDDMM
+     }
 
-    axios.get(endPoint + new URLSearchParams(parameters))
+     axios.get(endPoint + new URLSearchParams(parameters))
     .then(response => {
-      this.setState({//setting the state with the data we got from the ajax call
-      venues: response.data.response.groups[0].items
-     }, this.callMap()) //calling this.loadMap() as a callback - which gets invoked after our ajax call is successful
-     })
+      this.setState({
+        venues: response.data.response.groups[0].items
+      }, this.callMap())
+
+    })
     .catch(err => {
-      console.log('error ' + err)
-    //  alert(`${fourSquareFailMsg} ${err}`)
+      console.log('Error: ' + err)
     })
   }
 
-  initMap = () => {
 
+  initMap = () => {
     let myLatLng = {lat: 40.7128, lng: -74.0060}
       // Create a map object and specify the DOM element
       // for display.
-    let myMap = new window.google.maps.Map(document.getElementById('map'), {
+    let myMap = new window.google.maps.Map(document.getElementById("map"), {
       center: myLatLng,
       zoom: 16
     })
 
+    //create InfoWindow
+    let infoWindow = new window.google.maps.InfoWindow()
     //Looping thru venues array to generate markers
-    this.sate.venues.map(myVenue => {
-      // Create a marker and set its position for each venue.
-      let marker = new window.google.maps.Marker({
-        map: myMap,
-        position: {lat: myVenue.venue.location.lat, lng: myVenue.venue.location.lng},
-        title: myVenue.venue.name
+    this.state.venues.map(myVenue => {
 
+        console.log(myVenue)
+        let name = `${myVenue.venue.name}`
+        let address = `${myVenue.venue.location.formattedAddress}`
+
+        let contentString = `<div>
+                              <img id='img'>
+                              <h3>${name}</h3>
+                              <p>${address}</p>
+                             </div>`
+
+
+     //Create a marker and set its position for each venue.
+      let myMarker = new window.google.maps.Marker({
+       map: myMap,
+       position: {lat: myVenue.venue.location.lat, lng: myVenue.venue.location.lng},
+       title: myVenue.venue.name,
       })
 
-    }
+      //Click on a marker
+      myMarker.addListener('click', () => {
+        //Change the content
+        infoWindow.setContent(contentString)
+
+        //Open an InfoWindow
+        infoWindow.open(myMap, myMarker)
+      })
+    })
+  }
 
   render() {
     return (
@@ -78,15 +102,14 @@ class App extends Component {
  * Creating script tag for HTML
  *
  */
-function loadScript(url) {
+ function loadScript(url) {
+   const index = window.document.getElementsByTagName('script')[0]
+   const script = window.document.createElement('script')
+   script.defer = true
+   script.async = true
+   script.src = url
+   script.onerror = window.gm_authFailure
+   index.parentNode.insertBefore(script, index)
+ }
 
-  const index = window.document.getElementsByTagName('script')[0]
-  const script = window.document.createElement('script')
-  script.defer = true;
-  script.async = true;
-  script.src = url;
-  //script.onerror = window.gm_authFailure
-  index.parentNode.insertBefore(script, index)
-}
-
-export default App
+ export default App
