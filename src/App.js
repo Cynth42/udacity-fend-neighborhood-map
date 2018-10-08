@@ -35,19 +35,30 @@ class App extends Component {
      v: '20182609' //YYYYDDMM
    }
 
-    axios.get(endPoint + new URLSearchParams(parameters))
-    .then(response => {
-      //let requests = []
-      this.setState({
-        venues: response.data.response.groups[0].items.slice(0, 12)
-      }, this.setMap())
+   axios.get(endPoint + new URLSearchParams(parameters))
+   .then(response => {
+     //let requests = []
+     this.setState({
+       venues: response.data.response.groups[0].items.slice(0, 12)
+     }, this.setMap())
 
+     for (let i = 0; i < this.state.venues.length; i++) {
+       const venueId = this.state.venues[i].venue.id;
+       console.log(venueId);
+      requests.push(axios.get(`https://api.foursquare.com/v2/venues/${venueId}/photos?`))
+     }
+     return Promise.all(requests)
     })
-    .catch(err => {
-      console.log("Error: " + err)
-      alert("Error occurred while fetching data from four square API!")
-    })
-  }
+    .then((response) => {
+    console.log('id reponses:', response.data.response.photos.items[1])
+     console.log('id responses:', response.data.response.photos.items[1].prefix.concat(response.data.respons//e.photos.items[1].suffix))
+
+   })
+   .catch(err => {
+     console.log("Error: " + err)
+     alert("Error occurred while fetching data from four square API!")
+   })
+ }
 
  initMap = () => {
 
