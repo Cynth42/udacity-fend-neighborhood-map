@@ -37,7 +37,7 @@ class App extends Component {
 
    axios.get(endPoint + new URLSearchParams(parameters))
    .then(response => {
-     //let requests = []
+     let requests = []
      this.setState({
        venues: response.data.response.groups[0].items.slice(0, 12)
      }, this.setMap())
@@ -51,7 +51,7 @@ class App extends Component {
     })
     .then((response) => {
     console.log('id reponses:', response.data.response.photos.items[1])
-     console.log('id responses:', response.data.response.photos.items[1].prefix.concat(response.data.respons//e.photos.items[1].suffix))
+     console.log('id responses:', response.data.response.photos.items[1].prefix.concat(response.data.response.photos.items[1].suffix))
 
    })
    .catch(err => {
