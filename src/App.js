@@ -45,13 +45,19 @@ class App extends Component {
      for (let i = 0; i < this.state.venues.length; i++) {
        const venueId = this.state.venues[i].venue.id;
        console.log(venueId);
-      requests.push(axios.get(`https://api.foursquare.com/v2/venues/${venueId}/photos?`))
+       let photosEndpoint = `https://api.foursquare.com/v2/venues/${venueId}/photos?`
+       let photosParameters = {
+         client_id: 'HBPBAWFIW5MVPI5FEZ1AFVQPEQ4U1LIRYHM44GAKSAUT334F',
+         client_secret: 'D5ZWFILS2RF0SJCA0BZNYKVBCKOYXQO1YJANXFQC3XJG03NZ',
+         v: '20182609' //YYYYDDMM
+       }
+      requests.push(axios.get(photosEndpoint + new URLSearchParams(photosParameters)))
      }
      return Promise.all(requests)
     })
     .then((response) => {
-    console.log('id reponses:', response.data.response.photos.items[1])
-     console.log('id responses:', response.data.response.photos.items[1].prefix.concat(response.data.response.photos.items[1].suffix))
+    console.log('id reponses:', response[0].data.response.photos.items)
+     console.log('id responses:', response[0].data.response.photos.items[1].prefix.concat(response[0].data.response.photos.items[1].suffix))
 
    })
    .catch(err => {
