@@ -21,6 +21,11 @@ body,
   width: 100%;
 }
 
+.content {
+  text-align: center;
+
+}
+
 /*** Header: Navigation Bar ***/
 .navbar {
   position: relative;
