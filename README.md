@@ -93,7 +93,9 @@ This is a single page app created with `create-react-app`: a React framework. It
 
 * In your terminal, `run npm build`
 
-* Next, serve -s build
+* Next, npm install -g serve
+
+* serve -s build
 
 * Please note that the service worker will only cache in production mode
 
