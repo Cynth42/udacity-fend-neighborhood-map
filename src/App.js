@@ -9,59 +9,42 @@ import './App.css'
 class App extends Component {
   state = {
     venues: [],
-    //photos: [],
     markers: [],
     sideBarOpen: false,
     ariaExpand: false
   }
 
+/**
+ * Invoked immediately all map's info
+ * once it's mounted
+ */
   componentDidMount() {
     this.requestVenues()
   }
 
   setMap = () => {
-   loadScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyByxHn5EYEBHNx0XmfvEpl7AkuOlPpgM0w&callback=initMap")
+   loadScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyARlSeNYJ-pH2neoykbm1cmA8o_6bpdUhY&callback=initMap")
    window.initMap = this.initMap
   }
-  //Fetch data for locations from FourSquare API
+/**
+  * Set up endPoints and Fetch data for locations from * FourSquare API
+  */
   requestVenues = () => {
    const endPoint = "https://api.foursquare.com/v2/venues/explore?"
    const parameters = {
-     client_id: 'MLHQA2SE1RITW4QS0QK3NQU10Y5NFJEJPIG3ABPGM430TSL2',
-     client_secret: 'XXJF0ARODKSXK2RSXUJJSPHQCV14AINHFSWAN4RTG0KNAQAJ',
+     client_id:    'LJL4MUAIUYY1I0YAXEVGQNZU2XNHPIGVQAJYY4K34OUOXGB5',
+     client_secret: 'XOJJ5KK5CHZDX5AD1KK2NWS4IRX2JPCHZH31XBR0U4ASDTKO',
      query: 'arts',
      near: 'New York City',
      limit: 6,
-     venuePhotos: 1,
-     v: '20182609' //YYYYDDMM
+     v: '20180910' //YYYYDDMM
   }
-
+  //Used axios api to fetch venues from FourSquare
   axios.get(endPoint + new URLSearchParams(parameters))
   .then(response => {
      this.setState({
       venues: response.data.response.groups[0].items.slice(0, 12)
      }, this.setMap())
-
-     let requests = []
-     for (let i = 0; i < this.state.venues.length; i++) {
-       const venueId = this.state.venues[i].venue.id;
-       console.log(venueId);
-       requests.push(axios.get(`https://api.foursquare.com/v2/venues/${venueId}/photos?`))
-       let photosEndpoint = `https://api.foursquare.com/v2/venues/${venueId}/photos?`
-        let photosParameters = {
-         client_id: 'MLHQA2SE1RITW4QS0QK3NQU10Y5NFJEJPIG3ABPGM430TSL2',
-         client_secret: 'XXJF0ARODKSXK2RSXUJJSPHQCV14AINHFSWAN4RTG0KNAQAJ',
-         v: '20182609' //YYYYDDMM
-        }
-       requests.push(axios.get(photosEndpoint + new URLSearchParams(photosParameters)))
-       }
-      return Promise.all(requests)
-      })
-     .then((response) => {
-      console.log('id reponses:', response.data.response.photos.items[1])
-      console.log('id responses:', response.data.response.photos.items[1].prefix.concat(response.data.response.photos.items[1].suffix))
-      console.log('id reponses:', response[0].data.response.photos.items)
-      console.log('id responses:', response[0].data.response.photos.items[1].prefix.concat(response[0].data.response.photos.items[1].suffix))
     })
    .catch(err => {
     console.log("Error: " + err)
@@ -69,17 +52,18 @@ class App extends Component {
    })
  }
 
- // Initialize and add the map, venues, markers and set their positions and info windows
+ // Initialize and add the map, venues markers,       // info windows and set their positions
  initMap = () => {
   let myLatLng = {lat: 40.7128, lng: -74.0060}
   // Create a map object and specify the DOM element for display.
-  let myMap = new window.google.maps.Map(document.getElementById("map"), {
-      center: myLatLng,
-      Zoom: 16
-    })
+  let myMap = new window.google.maps.Map(document.getElementById("map"),
+  {
+    center: myLatLng,
+    Zoom: 16
+  })
 
   let bounds = new window.google.maps.LatLngBounds()
-  //create InfoWindow
+  //Create InfoWindow
   let infoWindow = new window.google.maps.InfoWindow()
     this.state.venues.forEach(myVenue => {
       console.log(myVenue)
@@ -99,7 +83,7 @@ class App extends Component {
                              <div id="body">
                               <p>Type: ${category} </p>
                              </div>
-                           </div>`
+                          </div>`
 
      //Create a marker and set its position for each venue.
      let myMarker = new window.google.maps.Marker({
@@ -123,7 +107,10 @@ class App extends Component {
       }, 1500)
     }
 
-    //Click on a marker
+  /**
+   *  Listens for a click on a marker
+   * to open infoWindow
+   */
     myMarker.addListener('click', () => {
       myMap.setCenter(myMarker.getPosition())
       console.log(myMarker)
@@ -155,7 +142,7 @@ class App extends Component {
  }
 
  //Closes sidebar when menu icon is clicked
- sideCloseClickHandler =() => {
+ sideCloseClickHandler = () => {
   this.setState({sideBarOpen: false, ariaExpand: false})
  }
 
@@ -168,7 +155,6 @@ class App extends Component {
   let sideBar
 
   if (this.state.sideBarOpen) {
-
     sideBar = <SideBar venues={this.state.venues}
     map={this.state.myMap}
     markers={this.state.markers}
@@ -189,8 +175,10 @@ class App extends Component {
 export default App
 
 /**
- * Asynchronously loads JavaScript <script> tags on a page.
+ * Asynchronously loads JavaScript
+ *<script> tags on the page.
  *Creating script tag for HTML
+ * From Elharony walkthrough      *https://www.youtube.com/channel/UCcWSbBe
  *
  */
 function loadScript(url) {

@@ -15,7 +15,7 @@ body,
   width: 100vw;
 }
 
-/**********Map****************/
+/* ========= Map ==========*/
 #map {
   height: calc(100vh - 60px);
   width: 100%;
@@ -26,7 +26,7 @@ body,
 
 }
 
-/*** Header: Navigation Bar ***/
+/* ========= header: Navigation Bar ========== */
 .navbar {
   position: relative;
   color: white;
@@ -49,7 +49,7 @@ nav {
   padding: 0 1rem;
 }
 
-#logo a {
+#title a {
   color: white;
   font-size: 20px;
   text-decoration: none;
@@ -63,7 +63,7 @@ nav {
   display: inline-block;
 }
 
-/*********SideBar**********/
+/* ========= Side Bar ==========*/
 .side-bar {
   background: #37af00; /*#111;*/
   box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.5);
@@ -74,7 +74,7 @@ nav {
   overFlow-y: scroll;
  }
 
-/******Navigation List******/
+/* ========= Side Bar List ==========*/
 #side-nav {
   overflow-x: hidden;
   transition: 0.5s;
@@ -124,7 +124,34 @@ nav {
    height: 65vh;
 }
 
-/***** Search input Field *****/
+/* ========= Hamburger Menu ==========*/
+.ham-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 36px;
+  width: 36px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.single-line {
+  width: 38px;
+  height: 2px;
+  background: white;
+}
+
+.ham-button:hover .single-line,
+.ham-button:active .single-line,
+.ham-button:focus .single-line {
+  background: #8EFA00
+}
+
+/* ========= Search Input Field ==========*/
 .input[type="text"] {
   height: 34px;
   width: 50%;
@@ -148,35 +175,7 @@ nav {
   border: 4px solid #ffbe00;
 }
 
-/* Hamburger Menu */
-.ham-button {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 36px;
-  width: 36px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  box-sizing: border-box;
-  outline: none;
-}
-
-.button-line {
-  width: 38px;
-  height: 2px;
-  background: white;
-}
-
-.ham-button:hover .button-line,
-.ham-button:active .button-line,
-.ham-button:focus .button-line {
-  background: #8EFA00
-}
-
-/********Footer*******/
-
+/* ========= Footer==========*/
 footer {
 	margin: 0;
 	padding: 0.5%;
@@ -196,7 +195,7 @@ footer a:focus {
   color: #fff;
 }
 
-/**********Media*******/
+/* ========= Media Query ==========*/
 @media screen and (max-width: 450px) {
   #side-nav .closebtn {
     padding-top: 25px;
@@ -209,5 +208,5 @@ footer a:focus {
 
   .side-bar {
     max-width: 200px;
-    }
+  }
 }

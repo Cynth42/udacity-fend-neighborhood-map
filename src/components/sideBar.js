@@ -25,6 +25,10 @@ class SideBar extends Component {
    })
   }
 
+/**From https://www.w3schools.com/howto/
+ * gave me more clarity on how to
+ * filter sidebar list
+ */
   filterList = (event) => {
     let input, filter, ul, li, a
     input = document.getElementById("input")
@@ -49,7 +53,7 @@ class SideBar extends Component {
 
   render() {
     return(
-      <div className="side-bar" role='application'>
+      <div className="side-bar" aria-labelledby="Search Art Centers">
         <label className="input">
           <input type="text"
           id="input"
@@ -59,7 +63,7 @@ class SideBar extends Component {
           tabIndex="2"
           className="search"/>
         </label>
-        <div id="nav-list">
+        <div id="nav-list" tabIndex="0" aria-labelledby="List of Art Centers">
           <nav id="side-nav">
             <a href="/" className="closebtn" onClick={this.closeNav}>&times;</a>
             <ul id="ul">
@@ -70,7 +74,7 @@ class SideBar extends Component {
                   onClick={() => this.handleMarkerClickEvent(myVenue)}
                   onKeyPress={() => this.handleMarkerClickEvent(myVenue)}
                   id={myVenue.venue.name}>
-                  <a href="#document-fragment" role="button" tabIndex="0" id={myVenue.venue.name}>
+                  <a href="#document-fragment" role="button" tabIndex="0" id={myVenue.venue.name} aria-label={myVenue.venue.name}>
                   {myVenue.venue.name}
                   </a>
                 </li>
