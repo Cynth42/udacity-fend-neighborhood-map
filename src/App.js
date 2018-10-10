@@ -27,32 +27,35 @@ class App extends Component {
    window.initMap = this.initMap
   }
 /**
-  * Set up endPoints and Fetch data for locations from * FourSquare API
-  */
+ * Set up endPoints and Fetch data for locations from * FourSquare API
+ */
+
+  //Fetch data for locations from FourSquare API
   requestVenues = () => {
-   const endPoint = "https://api.foursquare.com/v2/venues/explore?"
+   const endPoint = 'https://api.foursquare.com/v2/venues/explore?'
    const parameters = {
-     client_id:    'LJL4MUAIUYY1I0YAXEVGQNZU2XNHPIGVQAJYY4K34OUOXGB5',
+     client_id: 'LJL4MUAIUYY1I0YAXEVGQNZU2XNHPIGVQAJYY4K34OUOXGB5',
      client_secret: 'XOJJ5KK5CHZDX5AD1KK2NWS4IRX2JPCHZH31XBR0U4ASDTKO',
      query: 'arts',
      near: 'New York City',
      limit: 6,
      v: '20180910' //YYYYDDMM
   }
-  //Used axios api to fetch venues from FourSquare
+
   axios.get(endPoint + new URLSearchParams(parameters))
   .then(response => {
      this.setState({
       venues: response.data.response.groups[0].items.slice(0, 12)
      }, this.setMap())
-    })
+   })
    .catch(err => {
     console.log("Error: " + err)
     alert("Error occurred while fetching data from four square API!")
    })
  }
 
- // Initialize and add the map, venues markers,       // info windows and set their positions
+ // Initialize and add the map, venues markers,
+ // info windows and set their positions
  initMap = () => {
   let myLatLng = {lat: 40.7128, lng: -74.0060}
   // Create a map object and specify the DOM element for display.
@@ -71,11 +74,12 @@ class App extends Component {
       let addressOne = `${myVenue.venue.location.formattedAddress[0]}`
       let addressTwo = `${myVenue.venue.location.formattedAddress[1]}`
       let addressThree = `${myVenue.venue.location.formattedAddress[2]}`
-      //let imageUrl = "https://igx.4sqi.net/img/30x45/4a6cbb32f964a52076d11fe3.png"
+      let imageUrl = "https://igx.4sqi.net/img/general/300x200/116412_6WxtqojjksBSE1QM0tWA5uBd7przqWQxfdKSuHfjX9Y.jpg"
       let category = `${myVenue.venue.categories[0].name}`
       //Creates content for InfoWindow
-      let contentString = `<div className="content" tabIndex="0">
+      let contentString = `<div className="content" tabIndex="0" aria-label="infoWindow">
                               <h3 id="venue">${name}</h3>
+                              <img tabIndex='0' src=${imageUrl} alt='${name}'/>
                               <p id="adress"><b>${addressOne}<br>
                                  ${addressTwo}<br>
                                  ${addressThree}</b>
