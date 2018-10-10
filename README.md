@@ -1,11 +1,12 @@
-# Udacity React Neighborhood Map: A single Page App - Project 7
+# React Neighborhood Map: A single Page App - Project 7
 
 
 ### Udacity Front-End Web Developer Nanodegree program - Project's Overview:
 
 This is a single page app created with `create-react-app`: a React framework. It uses Google Maps API and FourSquare API with React to display a specific list of locations in New York City.  Six art centers of New York City are featured. It allows you to search and select each venue and get information on its location.  It is accessible - people with disability can easily use this app. Functionality is presented in a usable and responsive manner. It can be used on any screen size.  The App gives clarity on Reactjs, Service Workers, Responsive design and Accessibility
 
-![App Screenshot](images/Screen-Shot-2018.jpg "screenshot of app")
+![ScreenShot of App](images/Screen-Shot-2018.jpg)
+
 
 ## Table of Contents
 
@@ -78,7 +79,7 @@ This is a single page app created with `create-react-app`: a React framework. It
 * Or just click on the markers to learn more about the location.
 
 
-## How To Run The App in Production Mode
+## How To Run App In Production Mode
 
 * In your terminal, `run npm build`
 
