@@ -3,7 +3,7 @@
 
 ### Udacity Front-End Web Developer Nanodegree program - Project's Overview:
 
-This is a single page app created with `create-react-app`: a React framework. It uses Google Maps API and FourSquare API with React to display a specific list of locations in New York City.  Six art centers of New York City are featured. It allows you to search and select each venue and get information on its location.  It is accessible - people with disability can easily use this app. Functionality is presented in a usable and responsive manner. It can be used on any screen size.  The App gives clarity on Reactjs, Service Workers, Responsive design and Accessibility
+This is a single page app created with `create-react-app`: a React framework. It uses Google Maps API and FourSquare API with React to display a specific list of locations in New York City.  Six art centers of New York City are featured. It allows you to search and select each venue and get information on its location.  It is accessible - people with disability can easily use this app. Functionality is presented in a usable and responsive manner. It can be used on any screen size device.  The App gives clarity on Reactjs, Service Workers, Responsive design and Accessibility
 
 ![screen-shot-2018](https://user-images.githubusercontent.com/14208716/46741159-6e14e000-cc72-11e8-8db4-267ccb4a40f9.jpg) 
  
@@ -25,15 +25,13 @@ This is a single page app created with `create-react-app`: a React framework. It
   ## Installation
   
 * Clone or download the repository from Github or get the 
-  [starter code](https://github.com/Cynth42/udacity-fend-neighborhood-map)
+  [starter code here](https://github.com/Cynth42/udacity-fend-neighborhood-map)
 
 * Open terminal and cd into project's folder.
 
 * Run `npm install`  or `yarn install` to install all of the project's dependencies.
 
 * Then run `npm start` to launch the app if you have downloaded Node.js. 
-
-* To use service worker, run `npm build but only in production mode.
 
 * A new browser window should automatically open displaying the app if not, 
 
@@ -42,6 +40,8 @@ This is a single page app created with `create-react-app`: a React framework. It
 * If Node.js is not installed, download it [here](https://nodejs.org/en/download/)
 
 * Then follow the above steps 1-4 to install its dependencies and launch the App.
+
+* To use service worker, run `npm build`. Run it only in production mode.
 
 
 ## Dependencies
