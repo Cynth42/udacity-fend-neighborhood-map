@@ -180,8 +180,8 @@ export default App
  * Asynchronously loads JavaScript
  * <script> tags on the page.
  * Creating script tag for HTML
- * Elharony walkthrough helped understand how to set it up
- * https://www.youtube.com/channel/UCcWSbBe
+ * Elharony walkthrough helped understand how to code this
+ * https://www.youtube.com/channel/UCcWSbBe_s-T_gZRnqFbtyIA
  */
 function loadScript(url) {
   const index = window.document.getElementsByTagName('script')[0]
