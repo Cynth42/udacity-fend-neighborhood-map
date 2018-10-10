@@ -1,16 +1,15 @@
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+### Udacity React Neighborhood Map - Project 7: A single Page App
 
-Below you will find some information on how to perform common tasks.<br>
-You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
+This is a single page app which was created with `create-react-app` a React framework. It uses Google Maps API featuring art centers in New York City.  
 
 ![App Screenshot](images/Screen-Shot-2018.jpg?raw=true "screenshot of app")
 
 ## Table of Contents
 
-- [Updating to New Releases](#updating-to-new-releases)
-- [Sending Feedback](#sending-feedback)
-- [Folder Structure](#folder-structure)
-- [Available Scripts](#available-scripts)
+- [Installation](#installation)
+- [Dependencies](#Dependencies)
+- [How to Use App](#how-to-use-app)
+- [Attributions](#)
   - [npm start](#npm-start)
   - [npm test](#npm-test)
   - [npm run build](#npm-run-build)
