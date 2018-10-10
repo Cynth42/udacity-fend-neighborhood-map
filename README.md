@@ -104,8 +104,7 @@ These resources were very useful in understanding how to build this project:
 * [React Docs](https://reactjs.org/)
 * [create React documentation](https://github.com/facebookincubator/create-react-app)
 * [Google Maps API Docs](https://developers.google.com/maps/documentation/javascript/adding-a-google-map)
-* [Elharony](https://www.youtube.com/channel/UCcWSbBe_s-T_gZRnqFbtyIA)
-* [Filter List](https://www.w3schools.com/howto/howto_js_filter_lists.asp)
+* [w3schools](https://www.w3schools.com/howto/howto_js_filter_lists.asp)
 
 
 ## Credits
