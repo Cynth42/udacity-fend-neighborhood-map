@@ -54,6 +54,8 @@ This is a single page app created with `create-react-app`: a React framework. It
 
 * CSS
 
+* axios API
+
 * Google Maps API
 
 * FourSquare API
