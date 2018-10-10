@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Header from './components/header'
 import SideBar from './components/sideBar'
 import MapDiv from './components/mapDiv'
-import Footer from './components/footer'
+//import Footer from './components/footer'
 import axios from 'axios'
 import './App.css'
 
@@ -170,7 +170,6 @@ class App extends Component {
       <Header click={this.hamToggleClickHandler} ariaExpand="this.state.ariaExpand"/>
        {sideBar}
       <MapDiv />
-      <Footer />
     </div>
   )
  }
