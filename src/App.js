@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import Header from './components/header'
 import SideBar from './components/sideBar'
 import MapDiv from './components/mapDiv'
-//import Footer from './components/footer'
 import axios from 'axios'
 import './App.css'
 
@@ -26,11 +25,11 @@ class App extends Component {
    loadScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyARlSeNYJ-pH2neoykbm1cmA8o_6bpdUhY&callback=initMap")
    window.initMap = this.initMap
   }
+  
 /**
- * Set up endPoints and Fetch data for locations from * FourSquare API
+ * Set up endPoints and Fetch data for locations from FourSquare API-
+ * a third party API
  */
-
-  //Fetch data for locations from FourSquare API
   requestVenues = () => {
    const endPoint = 'https://api.foursquare.com/v2/venues/explore?'
    const parameters = {
@@ -54,8 +53,9 @@ class App extends Component {
    })
  }
 
- // Initialize and add the map, venues markers,
- // info windows and set their positions
+ /** Initialize and add the map, venues markers,
+  *  info windows and set their positions
+  */
  initMap = () => {
   let myLatLng = {lat: 40.7128, lng: -74.0060}
   // Create a map object and specify the DOM element for display.
@@ -103,7 +103,7 @@ class App extends Component {
 
     let venue = new window.google.maps.LatLng(myMarker.position.lat(), myMarker.position.lng())
     bounds.extend(venue)
-
+    //Adds animation to markers
     function toggleBounce(marker) {
       marker.setAnimation(window.google.maps.Animation.BOUNCE)
       setTimeout(() => {
@@ -125,7 +125,6 @@ class App extends Component {
 
       //Open an InfoWindow
       infoWindow.open(myMap, myMarker)
-
     })
     this.setState({
       markers: [...this.state.markers, myMarker]
@@ -179,10 +178,10 @@ export default App
 
 /**
  * Asynchronously loads JavaScript
- *<script> tags on the page.
- *Creating script tag for HTML
- * From Elharony walkthrough      *https://www.youtube.com/channel/UCcWSbBe
- *
+ * <script> tags on the page.
+ * Creating script tag for HTML
+ * Elharony walkthrough helped understand how to set it up
+ * https://www.youtube.com/channel/UCcWSbBe
  */
 function loadScript(url) {
   const index = window.document.getElementsByTagName('script')[0]
