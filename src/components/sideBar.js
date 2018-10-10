@@ -28,7 +28,7 @@ class SideBar extends Component {
 /**
  * Declare all the variables and Loop through all the list items,
  * And hide those who don't match the search query
- * This gave me more clarity on how to
+ * This gave me additionsal clarity on how to
  * filter the sidebar list
  */
   filterList = (event) => {
