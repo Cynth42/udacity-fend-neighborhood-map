@@ -11,7 +11,7 @@ class SideBar extends Component {
     venues: [],
     markers: []
   }
-
+ 
   handleMarkerClickEvent = (name) => {
     const newMarker = this.props.markers.find(marker => marker.title === name.venue.name)
     window.google.maps.event.trigger(newMarker, 'click')
@@ -25,9 +25,11 @@ class SideBar extends Component {
    })
   }
 
-/**From https://www.w3schools.com/howto/
- * gave me more clarity on how to
- * filter sidebar list
+/**
+ * Declare all the variables and Loop through all the list items,
+ * And hide those who don't match the search query
+ * This gave me more clarity on how to
+ * filter the sidebar list
  */
   filterList = (event) => {
     let input, filter, ul, li, a
@@ -53,7 +55,7 @@ class SideBar extends Component {
 
   render() {
     return(
-      <div className="side-bar" aria-labelledby="Search Art Centers">
+      <div className="side-bar" aria-label="Search Art Centers">
         <label className="input">
           <input type="text"
           id="input"
@@ -63,9 +65,9 @@ class SideBar extends Component {
           tabIndex="2"
           className="search"/>
         </label>
-        <div id="nav-list" tabIndex="0" aria-labelledby="List of Art Centers">
+        <div id="nav-list" tabIndex="0" >
           <nav id="side-nav">
-            <a href="/" className="closebtn" onClick={this.closeNav}>&times;</a>
+            <a href="/" className="close-btn" onClick={this.closeNav}>&times;</a>
             <ul id="ul">
               {
               this.props.venues.map(myVenue=> {
