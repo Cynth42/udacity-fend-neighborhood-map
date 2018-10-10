@@ -5,7 +5,7 @@
 
 This is a single page app created with `create-react-app`: a React framework. It uses Google Maps API and FourSquare API with React to display a specific list of locations in New York City.  Six art centers of New York City are featured. It allows you to search and select each venue and get information on its location.  It is accessible - people with disability can easily use this app. Functionality is presented in a usable and responsive manner. It can be used on any screen size.  The App gives clarity on Reactjs, Service Workers, Responsive design and Accessibility
 
-![Screenshot](/images/Screen-Shot-2018.jpg) 
+![screen-shot-2018](https://user-images.githubusercontent.com/14208716/46741159-6e14e000-cc72-11e8-8db4-267ccb4a40f9.jpg) 
  
 
 
