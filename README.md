@@ -1,4 +1,4 @@
-# React Neighborhood Map: A single Page App - Project 7
+# React Neighborhood Map: A single Page App - Project 7 
 
 
 ### Udacity Front-End Web Developer Nanodegree program - Project's Overview:
@@ -7,7 +7,6 @@ This is a single page app created from scratch with `create-react-app`: a React 
 
 ![screen-shot-2018](https://user-images.githubusercontent.com/14208716/46741159-6e14e000-cc72-11e8-8db4-267ccb4a40f9.jpg) 
  
-
 
 ## Table of Contents
 
@@ -22,8 +21,7 @@ This is a single page app created from scratch with `create-react-app`: a React 
 * [License](#license)
   
 
-
-  ## Installation
+## Installation
   
 * Clone or download the repository from Github or get the 
   [starter code here](https://github.com/Cynth42/udacity-fend-neighborhood-map)
@@ -77,8 +75,6 @@ This is a single page app created from scratch with `create-react-app`: a React 
 * Then navigate to localhost:5000
 
 
-
-  
 ## Resources
 
 These resources were very useful in understanding how to build this project:
@@ -89,16 +85,16 @@ These resources were very useful in understanding how to build this project:
 
 
 ## Attribution
- Details about the featured location in this app was provided by FourSquare API
+Details about the featured location in this app was provided by FourSquare API
 
 
 ## Credits
 
- Special thanks and appreciation to the Grow with Google and Udacity Front End Scholarship Program!
+Special thanks and appreciation to the Grow with Google and Udacity Front End Scholarship Program!
 
 
 ## License
 
- This project is licensed under the terms of the MIT license
+This project is licensed under the terms of the MIT license
 
 
