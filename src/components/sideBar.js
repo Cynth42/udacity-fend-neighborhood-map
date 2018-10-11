@@ -28,7 +28,7 @@ class SideBar extends Component {
 /**
  * Declare all the variables and Loop through all the list items,
  * And hide those who don't match the search query
- * This gave me additionsal clarity on how to
+ * Gave me additional clarity on how to
  * filter the sidebar list
  */
   filterList = (event) => {
@@ -62,6 +62,7 @@ class SideBar extends Component {
           placeholder="Filter Art Centers..."
           onChange={this.filterList}
           aria-label="Filter Art Centers"
+          aria-required="true"
           tabIndex="2"
           className="search"/>
         </label>

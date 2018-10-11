@@ -13,7 +13,7 @@ class Header extends Component {
           <div id="title" tabIndex="-1">
             <h1><a href="/" tabIndex="-1">My Neighborhood map</a></h1>
           </div>
-          <div id="nav-list">
+          <div id="nav-list" tabIndex="0" role="list">
           </div>
       </nav>
     </header>
