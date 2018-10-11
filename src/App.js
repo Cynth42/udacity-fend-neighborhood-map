@@ -76,7 +76,8 @@ class App extends Component {
       let addressThree = `${myVenue.venue.location.formattedAddress[2]}`
       let imageUrl = "https://igx.4sqi.net/img/general/300x200/116412_6WxtqojjksBSE1QM0tWA5uBd7przqWQxfdKSuHfjX9Y.jpg"
       let category = `${myVenue.venue.categories[0].name}`
-      //Creates content for InfoWindow
+      
+      //Creates content for InfoWindow: added in a test image
       let contentString = `<div className="content" tabIndex="0" aria-label="infoWindow">
                               <h3 id="venue">${name}</h3>
                               <img tabIndex='0' src=${imageUrl} alt='${name}'/>
@@ -103,6 +104,7 @@ class App extends Component {
 
     let venue = new window.google.maps.LatLng(myMarker.position.lat(), myMarker.position.lng())
     bounds.extend(venue)
+      
     //Adds animation to markers
     function toggleBounce(marker) {
       marker.setAnimation(window.google.maps.Animation.BOUNCE)
