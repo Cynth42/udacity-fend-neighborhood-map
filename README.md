@@ -85,7 +85,7 @@ These resources were very useful in understanding how to build this project:
 
 
 ## Attribution
-Details about the featured location in this app was provided by FourSquare API
+Details about the featured locations in this app was provided by FourSquare API
 
 
 ## Credits
