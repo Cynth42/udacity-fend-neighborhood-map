@@ -16,7 +16,7 @@ This is a single page app created from scratch with `create-react-app`: a React 
 - [Feature](#feature)
 - [Usage](#usage)
 - [How To Run App In Production](#how-to-run-app-in-production)
-- [Attribution]{#attribution)
+- [Attribution](#attribution)
 - [Resources](#resources)
 - [Credits](#credits)
 - [License](#license)
@@ -77,26 +77,28 @@ This is a single page app created from scratch with `create-react-app`: a React 
 * Then navigate to localhost:5000
 
 
-## Attribution
-* Details about the featured location in this app was provided by FourSquare API
 
   
 ## Resources
 
 These resources were very useful in understanding how to build this project:
-* [React Docs](https://reactjs.org/)
-* [create React documentation](https://github.com/facebookincubator/create-react-app)
-* [Google Maps API Docs](https://developers.google.com/maps/documentation/javascript/adding-a-google-map)
-* [w3schools](https://www.w3schools.com/howto/howto_js_filter_lists.asp)
+1. [React Docs](https://reactjs.org/)
+2. [create React documentation](https://github.com/facebookincubator/create-react-app)
+3. [Google Maps API Docs](https://developers.google.com/maps/documentation/javascript/adding-a-google-map)
+4. [w3schools](https://www.w3schools.com)
+
+
+## Attribution
+ Details about the featured location in this app was provided by FourSquare API
 
 
 ## Credits
 
-* Special thanks and appreciation to the Grow with Google and Udacity Front End Scholarship Program!
+ Special thanks and appreciation to the Grow with Google and Udacity Front End Scholarship Program!
 
 
 ## License
 
-* This project is licensed under the terms of the MIT license
+ This project is licensed under the terms of the MIT license
 
 
