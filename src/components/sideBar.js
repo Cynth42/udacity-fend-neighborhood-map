@@ -25,9 +25,11 @@ class SideBar extends Component {
    })
   }
 
-/**From https://www.w3schools.com/howto/
- * gave me more clarity on how to
- * filter sidebar list
+/**
+ * Declare all the variables and Loop through all * the list items,
+ * And hide those who don't match the search query
+ * This gave me additional clarity on how to
+ * filter the sidebar list
  */
   filterList = (event) => {
     let input, filter, ul, li, a
@@ -36,7 +38,7 @@ class SideBar extends Component {
     ul = document.getElementById("ul")
     li = ul.getElementsByTagName("li")
 
-    for ( let i = 0; i < li.length; i++) {
+    for (let i = 0; i < li.length; i++) {
       a = li[i].getElementsByTagName("a")[0]
       if (a.innerHTML.toLowerCase().indexOf(filter) > -1) {
         li[i].style.display = ""
@@ -63,9 +65,9 @@ class SideBar extends Component {
           tabIndex="2"
           className="search"/>
         </label>
-        <div id="nav-list" tabIndex="0" aria-labelledby="List of Art Centers">
+        <div id="nav-list" tabIndex="0">
           <nav id="side-nav">
-            <a href="/" className="closebtn" onClick={this.closeNav}>&times;</a>
+            <a href="/" className="close-btn" tabIndex="0" onClick={this.closeNav}>&times;</a>
             <ul id="ul">
               {
               this.props.venues.map(myVenue=> {

@@ -11,7 +11,7 @@ class Header extends Component {
             <HamToggleButton click={this.props.click} ariaExpand={this.props.ariaExpand}/>
           </div>
           <div id="title" tabIndex="-1">
-            <a href="/" tabIndex="-1">My Neighborhood map</a>
+            <h1><a href="/" tabIndex="-1">My Neighborhood map</a></h1>
           </div>
           <div id="nav-list">
           </div>

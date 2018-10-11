@@ -101,7 +101,7 @@ nav {
   margin-left: -30px;
 }
 
-#side-nav .closebtn {
+#side-nav .close-btn {
   position: absolute;
   top: 0;
   right: 25px;
@@ -117,11 +117,11 @@ nav {
 }
 
 #nav-list ul {
-   list-style-type: none;
-   margin: 0;
-   display: flex;
-   flex-direction: column;
-   height: 65vh;
+  list-style-type: none;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  height: 65vh;
 }
 
 /* ========= Hamburger Menu ==========*/
@@ -160,7 +160,6 @@ nav {
   font-weight: bold;
   box-shadow: inset 0.5px 0 2px #000;
   border: 2px solid black;
-
 }
 
 .search {
@@ -175,29 +174,9 @@ nav {
   border: 4px solid #ffbe00;
 }
 
-/* ========= Footer==========*/
-footer {
-	margin: 0;
-	padding: 0.5%;
-	text-align: center;
-  box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.5);
-}
-
-footer a {
-  text-decoration: none;
-  color: #fff;
-  cursor: pointer;
-}
-
-footer a:hover,
-footer a:active,
-footer a:focus {
-  color: #fff;
-}
-
 /* ========= Media Query ==========*/
 @media screen and (max-width: 450px) {
-  #side-nav .closebtn {
+  #side-nav .close-btn {
     padding-top: 25px;
     right: 10px;
   }

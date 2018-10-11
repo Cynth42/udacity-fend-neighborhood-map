@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import Header from './components/header'
 import SideBar from './components/sideBar'
 import MapDiv from './components/mapDiv'
-//import Footer from './components/footer'
 import axios from 'axios'
 import './App.css'
+
 
 class App extends Component {
   state = {
@@ -26,11 +26,12 @@ class App extends Component {
    loadScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyARlSeNYJ-pH2neoykbm1cmA8o_6bpdUhY&callback=initMap")
    window.initMap = this.initMap
   }
-/**
- * Set up endPoints and Fetch data for locations from * FourSquare API
- */
 
-  //Fetch data for locations from FourSquare API
+ /**
+  * Set up endPoints and Fetch data for locations
+  * from FourSquare API-
+  * as a third party API
+  */
   requestVenues = () => {
    const endPoint = 'https://api.foursquare.com/v2/venues/explore?'
    const parameters = {
@@ -54,11 +55,14 @@ class App extends Component {
    })
  }
 
- // Initialize and add the map, venues markers,
- // info windows and set their positions
+/**
+ * Initialize and add the map, venues markers,
+ * info windows and set their positions
+ */
  initMap = () => {
   let myLatLng = {lat: 40.7128, lng: -74.0060}
-  // Create a map object and specify the DOM element for display.
+  // Create a map object and specify the DOM element
+  // for display.
   let myMap = new window.google.maps.Map(document.getElementById("map"),
   {
     center: myLatLng,
@@ -76,16 +80,17 @@ class App extends Component {
       let addressThree = `${myVenue.venue.location.formattedAddress[2]}`
       let imageUrl = "https://igx.4sqi.net/img/general/300x200/116412_6WxtqojjksBSE1QM0tWA5uBd7przqWQxfdKSuHfjX9Y.jpg"
       let category = `${myVenue.venue.categories[0].name}`
-      //Creates content for InfoWindow
-      let contentString = `<div className="content" tabIndex="0" aria-label="infoWindow">
-                              <h3 id="venue">${name}</h3>
+
+      //Creates content for InfoWindow: added in a test image
+      let contentString = `<div className="content" tabIndex="0">
+                              <h3 id="venue" tabIndex="0">${name}</h3>
                               <img tabIndex='0' src=${imageUrl} alt='${name}'/>
-                              <p id="adress"><b>${addressOne}<br>
+                              <p id="adress" tabIndex="0"><b>${addressOne}<br>
                                  ${addressTwo}<br>
                                  ${addressThree}</b>
                               </p>
-                             <div id="body">
-                              <p>Type: ${category} </p>
+                             <div id="body" tabIndex="0">
+                              <p tabIndex="0">Type: ${category} </p>
                              </div>
                           </div>`
 
@@ -104,6 +109,7 @@ class App extends Component {
     let venue = new window.google.maps.LatLng(myMarker.position.lat(), myMarker.position.lng())
     bounds.extend(venue)
 
+    //Adds animation to markers
     function toggleBounce(marker) {
       marker.setAnimation(window.google.maps.Animation.BOUNCE)
       setTimeout(() => {
@@ -111,14 +117,14 @@ class App extends Component {
       }, 1500)
     }
 
-  /**
-   *  Listens for a click on a marker
-   * to open infoWindow
-   */
-    myMarker.addListener('click', () => {
-      myMap.setCenter(myMarker.getPosition())
-      console.log(myMarker)
-      toggleBounce(myMarker)
+ /**
+  * Listens for a click on a marker
+  * to open infoWindow
+  */
+   myMarker.addListener('click', () => {
+     myMap.setCenter(myMarker.getPosition())
+     console.log(myMarker)
+     toggleBounce(myMarker)
 
       //Change the content
       infoWindow.setContent(contentString)
@@ -156,9 +162,9 @@ class App extends Component {
  }
 
  render() {
-  let sideBar
+   let sideBar
 
-  if (this.state.sideBarOpen) {
+   if (this.state.sideBarOpen) {
     sideBar = <SideBar venues={this.state.venues}
     map={this.state.myMap}
     markers={this.state.markers}
@@ -179,10 +185,11 @@ export default App
 
 /**
  * Asynchronously loads JavaScript
- *<script> tags on the page.
- *Creating script tag for HTML
- * From Elharony walkthrough      *https://www.youtube.com/channel/UCcWSbBe
- *
+ * <script> tags on the page.
+ * Creating script tag for HTML
+ * Elharony walkthrough helped me understand how to code
+ * the loadScript
+ * https://www.youtube.com/channel/UCcWSbBe_s-T_gZRnqFbtyIA
  */
 function loadScript(url) {
   const index = window.document.getElementsByTagName('script')[0]
