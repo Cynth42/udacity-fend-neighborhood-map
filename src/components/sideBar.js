@@ -65,15 +65,11 @@ class SideBar extends Component {
           tabIndex="2"
           className="search"/>
         </label>
-<<<<<<< HEAD
+
         <div id="nav-list" tabIndex="0">
           <nav id="side-nav">
             <a href="/" className="close-btn" tabIndex="0" onClick={this.closeNav}>&times;</a>
-=======
-        <div id="nav-list" tabIndex="0" >
-          <nav id="side-nav">
-            <a href="/" className="close-btn" onClick={this.closeNav}>&times;</a>
->>>>>>> 92bb5b72ddecd992fd01e6375d147f389a7239e3
+
             <ul id="ul">
               {
               this.props.venues.map(myVenue=> {

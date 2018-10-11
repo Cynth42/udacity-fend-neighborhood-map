@@ -182,17 +182,12 @@ class App extends Component {
 
 export default App
 
-
 /**
  * Asynchronously loads JavaScript
  * <script> tags on the page.
  * Creating script tag for HTML
-<<<<<<< HEAD
- * Elharony walkthrough helped me understand how to code
-=======
- * Elharony walkthrough helped understand how to code
->>>>>>> 92bb5b72ddecd992fd01e6375d147f389a7239e3
- * the loadScript
+ * Elharony walkthrough helped understand
+ * how to code the loadScript
  * https://www.youtube.com/channel/UCcWSbBe_s-T_gZRnqFbtyIA
  */
 function loadScript(url) {
