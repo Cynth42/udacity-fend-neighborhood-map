@@ -11,15 +11,15 @@ This is a single page app created from scratch with `create-react-app`: a React 
 
 ## Table of Contents
 
-- [Installation](#installation)
-- [Dependencies](#dependencies)
-- [Feature](#feature)
-- [Usage](#usage)
-- [How To Run App In Production](#how-to-run-app-in-production)
-- [Attribution](#attribution)
-- [Resources](#resources)
-- [Credits](#credits)
-- [License](#license)
+* [Installation](#installation)
+* [Dependencies](#dependencies)
+* [Feature](#feature)
+* [Usage](#usage)
+* [How To Run App In Production](#how-to-run-app-in-production)
+* [Attribution](#attribution)
+* [Resources](#resources)
+* [Credits](#credits)
+* [License](#license)
   
 
 
