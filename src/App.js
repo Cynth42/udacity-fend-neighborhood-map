@@ -23,7 +23,7 @@ class App extends Component {
   }
 
   setMap = () => {
-   loadScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyARlSeNYJ-pH2neoykbm1cmA8o_6bpdUhY&callback=initMap")
+   loadScript("https://maps.googleapis.com/maps/api/js?key=&callback=initMap")
    window.initMap = this.initMap
   }
 
@@ -35,8 +35,8 @@ class App extends Component {
   requestVenues = () => {
    const endPoint = 'https://api.foursquare.com/v2/venues/explore?'
    const parameters = {
-     client_id: 'LJL4MUAIUYY1I0YAXEVGQNZU2XNHPIGVQAJYY4K34OUOXGB5',
-     client_secret: 'XOJJ5KK5CHZDX5AD1KK2NWS4IRX2JPCHZH31XBR0U4ASDTKO',
+     client_id: '',
+     client_secret: '',
      query: 'arts',
      near: 'New York City',
      limit: 6,
@@ -70,7 +70,7 @@ class App extends Component {
   })
 
   let bounds = new window.google.maps.LatLngBounds()
-  //Create InfoWindow
+  
   let infoWindow = new window.google.maps.InfoWindow()
     this.state.venues.forEach(myVenue => {
       console.log(myVenue)
@@ -109,7 +109,7 @@ class App extends Component {
     let venue = new window.google.maps.LatLng(myMarker.position.lat(), myMarker.position.lng())
     bounds.extend(venue)
 
-    //Adds animation to markers
+   
     function toggleBounce(marker) {
       marker.setAnimation(window.google.maps.Animation.BOUNCE)
       setTimeout(() => {
@@ -126,10 +126,10 @@ class App extends Component {
      console.log(myMarker)
      toggleBounce(myMarker)
 
-      //Change the content
+     
       infoWindow.setContent(contentString)
 
-      //Open an InfoWindow
+      
       infoWindow.open(myMap, myMarker)
     })
     this.setState({
@@ -140,7 +140,7 @@ class App extends Component {
    })
  }
 
- //Opens and closes side bar when hamburger menu is clicked
+ 
  hamToggleClickHandler = () => {
   this.setState((prevState) => {
     return {
